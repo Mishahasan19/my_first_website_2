@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMBERSHIP</title>
+    <link rel="stylesheet" href="../statics/style2.css">
+    <script>
+        // Function to handle form submission
+        function handleSubmit(event) {
+            // Prevent the form from actually submitting
+            event.preventDefault();
+
+            // Get the form values
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var gender = document.getElementById('gender').value;
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+            var email = document.getElementById('email').value;
+
+            // Check if all fields are filled (basic validation)
+            if (name && age && gender && phone && address && email) {
+                // Display the success message
+                document.getElementById('success-message').style.display = 'block';
+
+                // Optionally clear the form fields
+                document.getElementById('membership-form').reset();
+            } else {
+                // If any field is empty, alert the user
+                alert("Please fill out all fields.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="../statics/logob.png" alt="forever fit logo" >
+        <div>
+            <a href="index.html" class="home" title="Home">Home</a>
+            <a href="about us.html"class="home" title="About Us">About Us</a>
+            <a href="membership.html" class="home" title="Membership">Membership</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 style="text-align: center;">Membership Form</h1>
+
+        <!-- Success message -->
+        <div id="success-message" style="display: none; color: green; text-align: center; font-size: 18px;">
+            <p>Form submitted successfully! Thank you for joining us!</p>
+        </div>
+
+        <!-- Membership form -->
+        <form id="membership-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Your Age:</label>
+                <input type="numbers" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="Male">Male</option>                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input id="address" name="address" rows="3" placeholder="Enter your address" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
